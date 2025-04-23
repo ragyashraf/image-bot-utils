@@ -62,22 +62,6 @@ python main.py --help
 
 ---
 
-## 🧪 Examples
-
-**Original → Rotated by 90°**
-
-```bash
-python main.py --input generated-icon.png --output rotated-icon.png rotate --angle 90
-```
-
-**Original → Grayscale**
-
-```bash
-python main.py --input generated-icon.png --output grayscale-icon.png grayscale
-```
-
----
-
 ## 🖼️ Screenshots
 
 <p float="left">
