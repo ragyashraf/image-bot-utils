@@ -1,63 +1,105 @@
 
 # 🖼️ image-bot-utils
 
-A collection of powerful and beginner-friendly Python tools for image processing.  
-This repo includes standalone scripts that can be used as CLI utilities or integrated into bots (Discord, Telegram, etc.)
+A powerful Python toolkit with both a **command-line interface (CLI)** and a **web interface** for basic image processing.
 
-## ✨ Features
-
-- ✅ Rotate, Flip (Horizontal/Vertical)
-- ✅ Convert to Grayscale
-- ✅ Blur, Invert, Compress
-- ✅ Resize images
-- ✅ CLI usage & easy to extend
-
-## 📂 Folder Structure
-```
-image-bot-utils/
-├── main.py
-├── utils/
-│   ├── rotate.py
-│   ├── grayscale.py
-│   ├── compress.py
-│   └── invert.py
-├── examples/
-│   └── sample.png
-└── README.md
-```
-
-## 📦 Requirements
-
-- Python 3.8+
-- [Pillow (PIL)](https://pillow.readthedocs.io/en/stable/)
-
-Install via pip:
-```bash
-pip install pillow
-```
-
-## 🚀 Usage
-
-### CLI (from terminal)
-```bash
-python main.py --action rotate --input path/to/image.png
-```
-
-### As a module:
-```python
-from utils.rotate import rotate_image
-rotate_image("input.png", "output.png", 90)
-```
-
-## 🤖 Integration Ideas
-- Discord bot command: `!rotate 90`
-- Telegram image handler
-- Drag-and-drop GUI
-
-## 📸 Example
-Before → ![Before](examples/sample.png)  
-After → *(processed images to be added)*
+Built with ❤️ using **Python 3.11**, **Pillow**, **Flask**, and **Bootstrap**.
 
 ---
 
-Created with 💻 by [Ragy Ashraf](https://github.com/ragyashraf)
+## ⚙️ Features
+
+✅ Rotate images (custom angles)  
+✅ Convert to grayscale  
+✅ Compress images with quality control  
+✅ Invert image colors  
+✅ Run from terminal or browser  
+✅ Upload, preview, and download edited images
+
+---
+
+## 💻 Tech Stack
+
+- Python 3.11
+- Pillow (PIL)
+- Flask (Web)
+- Bootstrap (Styling)
+- Replit (Dev)
+
+---
+
+## 🚀 CLI Usage
+
+Run directly from the terminal:
+
+```bash
+# Rotate an image
+python main.py --input input.png --output rotated.png rotate --angle 90
+
+# Convert to grayscale
+python main.py --input input.png --output grayscale.png grayscale
+
+# Compress with custom quality
+python main.py --input input.png --output compressed.jpg compress --quality 80
+
+# Invert image colors
+python main.py --input input.png --output inverted.png invert
+```
+
+### 🔧 Help Menu
+```bash
+python main.py --help
+```
+
+---
+
+## 🌐 Web Interface
+
+- Launches Flask app via `app.py`
+- Upload images via browser
+- Preview before/after
+- Works with `.png`, `.jpg`, `.jpeg`
+
+---
+
+## 🧪 Examples
+
+**Original → Rotated by 90°**
+
+```bash
+python main.py --input generated-icon.png --output rotated-icon.png rotate --angle 90
+```
+
+**Original → Grayscale**
+
+```bash
+python main.py --input generated-icon.png --output grayscale-icon.png grayscale
+```
+
+---
+
+## 🖼️ Screenshots
+
+<p float="left">
+  <img src="screenshots/upload-form.png" width="300" />
+  <img src="screenshots/result-preview.png" width="300" />
+</p>
+
+---
+
+## 📦 Installation
+
+```bash
+pip install pillow flask
+```
+
+> Python 3.8 or higher is recommended.
+
+---
+
+## 👨‍💻 Created By
+
+**Ragy Ashraf**  
+Python dev | Discord bot engineer | Game systems nerd  
+[GitHub Profile →](https://github.com/ragyashraf)
+
