@@ -62,12 +62,19 @@ python main.py --help
 
 ---
 
-## 🖼️ Screenshots
+## 🧪 Examples
 
-<p float="left">
-  <img src="screenshots/upload-form.png" width="300" />
-  <img src="screenshots/result-preview.png" width="300" />
-</p>
+**Original → Rotated by 90°**
+
+```bash
+python main.py --input generated-icon.png --output rotated-icon.png rotate --angle 90
+```
+
+**Original → Grayscale**
+
+```bash
+python main.py --input generated-icon.png --output grayscale-icon.png grayscale
+```
 
 ---
 
@@ -86,4 +93,3 @@ pip install pillow flask
 **Ragy Ashraf**  
 Python dev | Discord bot engineer | Game systems nerd  
 [GitHub Profile →](https://github.com/ragyashraf)
-
