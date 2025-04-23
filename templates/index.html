@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image-Bot-Utils</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="mb-4">Image-Bot-Utils</h1>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Image Processing Tool</h4>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-info">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <form action="{{ url_for('process_image') }}" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Select an image file:</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".png,.jpg,.jpeg,.gif,.bmp,.tiff" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="operation" class="form-label">Select operation:</label>
+                                <select class="form-select" id="operation" name="operation" onchange="showOptions()">
+                                    <option value="rotate">Rotate</option>
+                                    <option value="grayscale">Grayscale</option>
+                                    <option value="compress">Compress</option>
+                                    <option value="invert">Invert Colors</option>
+                                </select>
+                            </div>
+                            
+                            <div id="rotate-options" class="mb-3">
+                                <label for="angle" class="form-label">Rotation angle (degrees):</label>
+                                <input type="number" class="form-control" id="angle" name="angle" value="90">
+                            </div>
+                            
+                            <div id="compress-options" class="mb-3" style="display: none;">
+                                <label for="quality" class="form-label">Compression quality (0-100):</label>
+                                <input type="range" class="form-range" id="quality" name="quality" min="0" max="100" value="60">
+                                <div class="text-center" id="quality-value">60</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Process Image</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Command-line Usage</h5>
+                    </div>
+                    <div class="card-body">
+                        <pre><code>python main.py --input input.png --output output.png rotate --angle 90</code></pre>
+                        <a href="https://github.com/yourusername/image-bot-utils" class="btn btn-sm btn-secondary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showOptions() {
+            const operation = document.getElementById('operation').value;
+            
+            // Hide all option divs
+            document.getElementById('rotate-options').style.display = 'none';
+            document.getElementById('compress-options').style.display = 'none';
+            
+            // Show relevant options
+            if (operation === 'rotate') {
+                document.getElementById('rotate-options').style.display = 'block';
+            } else if (operation === 'compress') {
+                document.getElementById('compress-options').style.display = 'block';
+            }
+        }
+        
+        // Update quality value display
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('quality-value');
+        
+        qualitySlider.addEventListener('input', function() {
+            qualityValue.textContent = this.value;
+        });
+        
+        // Initialize
+        showOptions();
+    </script>
+</body>
+</html>
